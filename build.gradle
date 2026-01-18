@@ -1,0 +1,96 @@
+plugins {
+	id 'java'
+	id 'maven-publish'
+	//id 'org.springframework.boot' version '3.5.5'
+	//id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.gscience.crypto'
+version = '0.0.1-SNAPSHOT'
+description = 'all sorts of crypto functions'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+
+	// Check for the latest stable version on Maven Central
+	def lombokVersion = '1.18.38' // Use the current stable version
+
+	// lombok
+	compileOnly "org.projectlombok:lombok:$lombokVersion"
+	// Use 'annotationProcessor' to run Lombok's code generation
+	annotationProcessor "org.projectlombok:lombok:$lombokVersion"
+
+	// apache library
+	implementation 'org.apache.commons:commons-lang3:3.14.0'
+
+	// test implementation
+	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.2'
+	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.2'
+
+	// If you need the JUnit Platform for custom runners or IDE integration
+	testImplementation 'org.junit.platform:junit-platform-launcher:1.10.2'
+
+	// crypto library
+	implementation 'org.mindrot:jbcrypt:0.4'
+
+	// 1. JJWT API: Contains interfaces and abstract classes (required)
+	implementation 'io.jsonwebtoken:jjwt-api:0.12.5'
+
+	// 2. JJWT Implementation: Contains the actual signing and parsing logic (runtime requirement)
+	// Note: 'runtimeOnly' is generally preferred for dependencies only needed at runtime.
+	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.5'
+
+	// 3. JJWT Jackson: Provides JSON serialization/deserialization integration (runtime requirement)
+	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.5'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+publishing {
+	publications {
+		maven(MavenPublication) {
+			groupId = 'org.gscience.crypto'
+			artifactId = 'crypto'
+			version = '1.2'
+
+			from components.java
+
+			// Optional: Add Maven POM properties
+			pom {
+				name = 'Gsience mathlab'
+				description = 'crypto functions'
+				url = 'https://github.com/your-username/your-repository'
+				licenses {
+					license {
+						name = 'MIT License'
+						url = 'https://opensource.org/licenses/MIT'
+					}
+				}
+				developers {
+					developer {
+						id = 'gerrits.marc@hotmail.com'
+						name = 'Gerrits Marc'
+						email = 'gerrits.marc@hotmail.com'
+					}
+				}
+			}
+		}
+	}
+}
