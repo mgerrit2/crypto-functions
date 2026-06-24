@@ -1,4 +1,4 @@
-package com.gscience.crypto.Crypto_functions.AsymmetricKeyPair;
+package com.gscience.crypto.functions.asymmetric.keypair;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

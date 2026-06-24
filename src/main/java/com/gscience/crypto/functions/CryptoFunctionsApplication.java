@@ -1,4 +1,4 @@
-package com.gscience.crypto.Crypto_functions;
+package com.gscience.crypto.functions;
 
 /*
 import org.springframework.boot.SpringApplication;

@@ -1,4 +1,4 @@
-package com.gscience.crypto.Crypto_functions;
+package com.gscience.crypto.functions;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -10,7 +10,8 @@ import static org.junit.jupiter.api.Assertions.*;
 @DisplayName("HashCrypto Utility Tests")
 class HashCryptoTest {
 
-    private static final String PLAIN_PASSWORD = "MySecurePassword123!";
+    //private static final String PLAIN_PASSWORD = "MySecurePassword123!";
+    private static final String PLAIN_PASSWORD = "poseidon";
     private static final String WRONG_PASSWORD = "AnIncorrectPassword";
 
     // --- Test: Hashing ---

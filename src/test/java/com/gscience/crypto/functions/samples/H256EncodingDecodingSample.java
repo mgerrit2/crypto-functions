@@ -1,4 +1,4 @@
-package com.gscience.crypto.Crypto_functions.samples;
+package com.gscience.crypto.functions.samples;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -11,7 +11,7 @@ import javax.crypto.SecretKey;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
-public class H256EncodingDecodingSample {
+class H256EncodingDecodingSample {
 
     // A secure, Base64-encoded key for HS256 (must be 32+ bytes when decoded)
     private static final String SECRET = "QkFTZTY0RW5jb2RlZFNlY3JldEtleUZvcjM0Qnl0ZXNTaWduaW5n";

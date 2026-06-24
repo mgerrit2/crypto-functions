@@ -1,4 +1,4 @@
-package com.gscience.crypto.Crypto_functions.AsymmetricKeyPair;
+package com.gscience.crypto.functions.asymmetric.keypair;
 
 import java.security.*;
 import java.util.Base64;
@@ -14,12 +14,10 @@ public class AsymmetricKeyPair {
 
         KeyPair keyPair = keyPairGenerator.generateKeyPair();
 
-        var keyPairResult= KeyPairResult.builder()
+        return KeyPairResult.builder()
                 .privateKey( keyPair.getPrivate())
                 .publicKey(keyPair.getPublic())
                 .build();
-
-        return keyPairResult;
     }
 
     public KeyPairStringResult toKeyPairString(){
